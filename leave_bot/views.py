@@ -22,7 +22,7 @@ from core.settings import CLIENT_ID, CLIENT_SECRET, SECRET_SALT
 class SignView(CreateView):
     form_class = UserCreationForm
     template_name = 'leave_bot/registration.html'
-    success_url = 'login'
+    success_url = ''
     model = AdminUser
 
 

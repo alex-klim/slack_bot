@@ -19,7 +19,7 @@ urlpatterns = [
     url(r'^invited/(\S+)/$', invited),
     url(r'^invite/(?P<team_id>[A-Z0-9]+)/$', invite),
     # auth
-    url(r'^register$', SignView.as_view(), name='registration'),
-    url(r'^logout$', out, name='logout'),
-    url(r'^$', LogView.as_view(), name='login'),
+    url(r'^register/$', SignView.as_view(), name='registration'),
+    url(r'^logout$/', out, name='logout'),
+    url(r'^', LogView.as_view(), name='login'),
 ]
