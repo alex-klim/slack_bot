@@ -1,0 +1,15 @@
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+<body>
+    <div class="text-center">
+    <h3>Team name: {{team_name}}</h3>
+    <form method="POST" action="{% url 'settings' team %}">
+        {%csrf_token%}
+        {{form.as_p}}
+        <input type="submit" class="btn"  value="Change">
+    </form>
+    <p class="bg-danger">Don't forget to change event channel in app settings</p>
+    <form action="{% url 'index' %}">
+        <input class="btn" type="submit" value="Go back" />
+    </form>
+    </div>
+</body>

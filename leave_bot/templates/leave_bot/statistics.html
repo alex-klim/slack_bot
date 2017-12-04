@@ -1,0 +1,37 @@
+<style>
+div.container > div {
+    margin: 30px;
+    padding: 15px;
+}
+div.container > div:nth-of-type(odd) {
+    background: #e0e0e0;
+    border: 1px solid black;
+}
+div.container > div:nth-of-type(even) {
+    background: #f2f2f2;
+    border: 1px solid black;
+}
+</style>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+<body>
+    <div class="text-center">
+        <p><h2>Team name: {{ team_name }}</h2></p>
+        <form action="{% url 'index' %}">
+            <input class="btn" type="submit" value="Go back" />
+        </form>
+        </div>
+    <div class="container">
+        
+    {% for mes in messages %}
+    <div>
+        <p class="lead">{{mes.author_name}}: {{mes.text}}</p>
+        <hr style="border-top: dotted 1px;" />
+        {% for ans in mes.answers.all %}
+        <div>
+            <p>{{ans.author_name}}: {{ans.text}}</p>
+        </div>
+        {% endfor %}
+    </div>
+    {% endfor %}
+    </div>
+</body>
