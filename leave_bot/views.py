@@ -64,8 +64,8 @@ class StatisticsView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(StatisticsView, self).get_context_data(**kwargs)
-        team = Team.objects.get(admin_id=self.request.user.pk)
-        team_id = team.team_id
+        team_id = self.kwargs['team_id']
+        team = Team.objects.get(team_id=team_id)
         team_name = team.team_name
         messages = Message.objects.filter(team_id=team_id).prefetch_related('answers')
         context['messages'] = messages
