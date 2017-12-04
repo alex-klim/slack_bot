@@ -12,9 +12,9 @@
     {% for team in teams %}
         <tr>
             <td>{{team.team_name}}</td>
-            <td><a href="/statistics/{{team.team_id}}">See more</a></td>
-            <td><a href="/settings/{{team.team_id}}">Change</a></td>
-            <td><a href="/invite/{{team.team_id}}">Invite</a></td>
+            <td><a href="/statistics/{{team.team_id}}/">See more</a></td>
+            <td><a href="/settings/{{team.team_id}}/">Change</a></td>
+            <td><a href="/invite/{{team.team_id}}/">Invite</a></td>
             </tr>
     {% endfor %}
     </table>
