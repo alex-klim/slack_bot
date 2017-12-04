@@ -112,7 +112,7 @@ def invite(request, team_id):
         {"team_id":team_id,
          "team_name":team.team_name},
         timeout=team.moderator_expire, secret=SECRET_SALT
-    )[:150]
+    )
     Token(token=token).save()
     context = {
         'token':token
