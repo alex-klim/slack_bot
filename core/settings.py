@@ -134,3 +134,6 @@ CLIENT_SECRET=client_secret
 
 # tokenlib
 SECRET_SALT="I_LOVE_GUNICORNS"
+import dj_database_url
+db_from_env = dj_database_url.config()
+DATABASES['default'].update(db_from_env)
