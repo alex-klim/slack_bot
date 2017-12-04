@@ -43,6 +43,7 @@ class LogView(FormView):
         if user is not None:
             login(self.request, user)
             return redirect(self.success_url)
+        return redirect('login')
 
 def out(request):
     logout(request)
