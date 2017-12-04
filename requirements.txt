@@ -2,3 +2,4 @@ Django==1.11.7
 pytz==2017.3
 requests==2.18.4
 tokenlib==0.3.1
+gunicorn==19.7.1
