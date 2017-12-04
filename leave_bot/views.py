@@ -109,7 +109,8 @@ def settings(request, team_id):
 def invite(request, team_id):
     team = Team.objects.get(team_id=team_id)
     token = make_token(
-        {"team_id":team_id},
+        {"team_id":team_id,
+         "team_name":team.team_name},
         timeout=team.moderator_expire, secret=SECRET_SALT
     )
     Token(token=token).save()
@@ -126,14 +127,17 @@ def invited(request, token):
             "Token doesn't exists. Ask for token from administrator"
         )
     try:
-        team_id = parse_token(token, secret=SECRET_SALT)['team_id']
+        team = parse_token(token, secret=SECRET_SALT)
+        team_id = team['team_id']
+        team_name = team['team_name']
     except ValueError:
         db_token.delete()
         return HttpResponse(
             "Token expired. Ask for another token from administrator"
         )
     context = {
-        'messages':Message.objects.filter(team_id=team_id).prefetch_related('answers')
+        'messages':Message.objects.filter(team_id=team_id).prefetch_related('answers'),
+        'team_name':team_name
     }
     return render(request, 'leave_bot/statistics.html', context)
 
