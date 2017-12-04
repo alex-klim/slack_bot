@@ -21,14 +21,14 @@ from core.settings import CLIENT_ID, CLIENT_SECRET, SECRET_SALT
 #--------------------------- Auth Views ------------------------------------
 class SignView(CreateView):
     form_class = UserCreationForm
-    template_name = 'leave_bot/form.html'
+    template_name = 'leave_bot/registration.html'
     success_url = 'login'
     model = AdminUser
 
 
 class LogView(FormView):
     form_class = LoginForm
-    template_name = 'leave_bot/form.html'
+    template_name = 'leave_bot/login.html'
     success_url = 'index'
 
     def dispatch(self, request, *args, **kwargs):
