@@ -151,13 +151,11 @@ def oauth(request):
     resp = requests.get('https://slack.com/api/oauth.access', context)
     data = json.loads(resp.text)
     admin = AdminUser.objects.get(pk=request.user.pk)
-    team, created = Team.objects.get_or_create(
-        team_name=data['team_name'],
-        team_id=data['team_id'],
-        admin=admin,
-        bot_token=data['bot']['bot_access_token'],
-        bot_id=data['bot']['bot_user_id'],
-    )
+    team, created = Team.objects.get_or_create(team_id=data['team_id'])
+    team.team_name=data['team_name']
+    team.admin=admin
+    team.bot_token=data['bot']['bot_access_token']
+    team.bot_id=data['bot']['bot_user_id']
     team.save()
     return redirect('settings', team.team_id)
 
