@@ -3,3 +3,4 @@ pytz==2017.3
 requests==2.18.4
 tokenlib==0.3.1
 gunicorn==19.7.1
+ipsycopg2==2.7.3.2
