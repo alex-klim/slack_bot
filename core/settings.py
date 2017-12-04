@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'y^lp_qz!h)2fs6-znyq+k7!sn8*0nu(vsye7)o-vkms&m_(=7s'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG =True
 
 ALLOWED_HOSTS = ['ask-leave.herokuapp.com']#['78eaa1a2.ngrok.io']
 
