@@ -51,5 +51,5 @@ class Team(models.Model):
 
 
 class Token(models.Model):
-    token = models.CharField(max_length=200)
+    token = models.TextField(max_length=200)
 
